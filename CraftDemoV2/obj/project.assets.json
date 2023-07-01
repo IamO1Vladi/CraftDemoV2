@@ -28,6 +28,19 @@
           }
         }
       },
+      "CraftDemoV2.API.RequestModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "bin/placeholder/CraftDemoV2.API.RequestModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CraftDemoV2.API.RequestModels.dll": {}
+        }
+      },
       "CraftDemoV2.API.ResponseModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -69,6 +82,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "CraftDemoV2.API.RequestModels": "1.0.0",
           "CraftDemoV2.API.ResponseModels": "1.0.0",
           "CraftDemoV2.Data.Models": "1.0.0"
         },
@@ -125,6 +139,11 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "CraftDemoV2.API.RequestModels/1.0.0": {
+      "type": "project",
+      "path": "../CraftDemoV2.API.RequestModels/CraftDemoV2.API.RequestModels.csproj",
+      "msbuildProject": "../CraftDemoV2.API.RequestModels/CraftDemoV2.API.RequestModels.csproj"
     },
     "CraftDemoV2.API.ResponseModels/1.0.0": {
       "type": "project",

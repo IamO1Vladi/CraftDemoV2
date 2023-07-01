@@ -30,5 +30,8 @@ namespace CraftDemoV2.API.ResponseModels.GitHubModels.Users
         [JsonProperty("avatar_url")]
         public string? AvatarUrl { get; set; }
 
+        [JsonProperty("twitter_username")]
+        public string? TwitterUserName { get; set; }
+
     }
 }

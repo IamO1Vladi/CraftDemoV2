@@ -5,6 +5,6 @@ namespace CraftDemoV2.Services.APIServices.FreshDeskServices.Interfaces;
 public interface IFreshDeskApiService
 {
 
-    public Task CreateContact(HttpClient client, GitHubGetUserModel);
+    public Task CreateContact(HttpClient client, string contactInfo);
 
 }

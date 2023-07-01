@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CraftDemoV2.API.RequestModels\CraftDemoV2.API.RequestModels.csproj" />
     <ProjectReference Include="..\CraftDemoV2.API.ResponseModels\CraftDemoV2.API.ResponseModels.csproj" />
     <ProjectReference Include="..\CraftDemoV2.Data.Models\CraftDemoV2.Data.Models.csproj" />
   </ItemGroup>

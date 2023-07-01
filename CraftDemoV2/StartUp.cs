@@ -1,5 +1,7 @@
 ﻿using CraftDemoV2.API.ResponseModels.GitHubModels.Users;
+using CraftDemoV2.Services.APIServices.FreshDeskServices;
 using CraftDemoV2.Services.APIServices.GitHubServices;
+using CraftDemoV2.Services.BusinessServices;
 
 namespace CraftDemoV2
 {
@@ -7,27 +9,31 @@ namespace CraftDemoV2
     {
         static async Task Main(string[] args)
         {
-            
-            Environment.SetEnvironmentVariable("PasswordTest",Console.ReadLine());
-
-            var doeItWork = Environment.GetEnvironmentVariable("PasswordTest");
-
-            Console.WriteLine(doeItWork);
-
-            var testService = new GitHubApiService();
-
-            HttpClient client = new HttpClient();
             try
             {
-                GitHubGetUserModel testModel = await testService.GetUser(client, "IamO1Vladisadasdasd");
+                Environment.SetEnvironmentVariable("FreshDeskDomain", "quickbasecraftdemov2-help");
+                Environment.SetEnvironmentVariable("FRESHDESK_TOKEN", "SOiTuxzkSOYo9FO2l");
+
+
+                var testService = new GitHubApiService();
+                var testFreshDeskService = new FreshDeskApiService();
+
+                var mainTestService = new MainService(testFreshDeskService,testService);
+
+                HttpClient client = new HttpClient();
+
+                {
+                   await mainTestService.CreateFreshDeskContactFromGitUser(client, "IamO1Vladi");
+
+                }
+
+
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
-
-            Console.WriteLine();
-
         }
     }
 }
