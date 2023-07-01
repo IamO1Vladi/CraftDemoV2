@@ -1,7 +1,15 @@
 ﻿using CraftDemoV2.API.ResponseModels.GitHubModels.Users;
+using CraftDemoV2.Data;
 using CraftDemoV2.Services.APIServices.FreshDeskServices;
+using CraftDemoV2.Services.APIServices.FreshDeskServices.Interfaces;
 using CraftDemoV2.Services.APIServices.GitHubServices;
 using CraftDemoV2.Services.BusinessServices;
+using CraftDemoV2.Services.DataBaseServices.GitHubUsersDataBase;
+using Microsoft.Extensions.DependencyInjection;
+using static CraftDemoV2.Services.Configuration.ServicesConfiguration;
+using CraftDemoV2.Services.BusinessServices.Interfaces;
+using CraftDemoV2.Services.APIServices.GitHubServices.Interfaces;
+using CraftDemoV2.Services.DataBaseServices.GitHubUsersDataBase.Interfaces;
 
 namespace CraftDemoV2
 {
@@ -14,11 +22,20 @@ namespace CraftDemoV2
                 Environment.SetEnvironmentVariable("FreshDeskDomain", "quickbasecraftdemov2-help");
                 Environment.SetEnvironmentVariable("FRESHDESK_TOKEN", "SOiTuxzkSOYo9FO2l");
 
+                var services = new ServiceCollection();
+                ConfigureServices(services);
+                
+
+                var serviceProvider= services.BuildServiceProvider();
+                
 
                 var testService = new GitHubApiService();
                 var testFreshDeskService = new FreshDeskApiService();
+                
 
-                var mainTestService = new MainService(testFreshDeskService,testService);
+                var mainTestService = serviceProvider.GetRequiredService<IMainService>();
+
+                
 
                 HttpClient client = new HttpClient();
 
@@ -27,13 +44,13 @@ namespace CraftDemoV2
 
                 }
 
-
-                Console.WriteLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
+
+        
     }
 }

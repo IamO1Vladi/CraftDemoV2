@@ -8,6 +8,7 @@ using CraftDemoV2.API.ResponseModels.GitHubModels.Users;
 using CraftDemoV2.Services.APIServices.FreshDeskServices.Interfaces;
 using CraftDemoV2.Services.APIServices.GitHubServices.Interfaces;
 using CraftDemoV2.Services.BusinessServices.Interfaces;
+using CraftDemoV2.Services.DataBaseServices.GitHubUsersDataBase.Interfaces;
 using Newtonsoft.Json;
 
 namespace CraftDemoV2.Services.BusinessServices
@@ -17,11 +18,13 @@ namespace CraftDemoV2.Services.BusinessServices
 
         private readonly IFreshDeskApiService freshDeskApiService;
         private readonly IGitHubApiService gitHubApiService;
+        private readonly IGitHubDataBaseService gitHubDataBaseService;
 
-        public MainService(IFreshDeskApiService freshDeskApiService,IGitHubApiService gitHubApiService)
+        public MainService(IFreshDeskApiService freshDeskApiService,IGitHubApiService gitHubApiService, IGitHubDataBaseService gitHubDataBaseService)
         {
             this.freshDeskApiService=freshDeskApiService;
             this.gitHubApiService=gitHubApiService;
+            this.gitHubDataBaseService=gitHubDataBaseService;
         }
 
         public async Task CreateFreshDeskContactFromGitUser(HttpClient client, string gitHubUserName)
@@ -48,11 +51,14 @@ namespace CraftDemoV2.Services.BusinessServices
 
                 await freshDeskApiService.CreateContact(client, freshDeskContent);
 
+                await gitHubDataBaseService.AddUser(gitHubUser);
+
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.InnerException.Message==null?ex.Message:ex.InnerException.Message);
             }
+            
 
         }
     }

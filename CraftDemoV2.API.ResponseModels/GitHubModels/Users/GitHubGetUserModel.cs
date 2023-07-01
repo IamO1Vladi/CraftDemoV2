@@ -33,5 +33,8 @@ namespace CraftDemoV2.API.ResponseModels.GitHubModels.Users
         [JsonProperty("twitter_username")]
         public string? TwitterUserName { get; set; }
 
+        [JsonProperty("created_at")]
+        public DateTime CreatedAt { get; set; }
+
     }
 }

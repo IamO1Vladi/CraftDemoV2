@@ -19,3 +19,5 @@ D:\C# projects\CraftDemoV2\CraftDemoV2.Services\bin\Debug\net6.0\CraftDemoV2.Com
 D:\C# projects\CraftDemoV2\CraftDemoV2.Services\obj\Debug\net6.0\CraftDemoV2.Services.csproj.CopyComplete
 D:\C# projects\CraftDemoV2\CraftDemoV2.Services\bin\Debug\net6.0\CraftDemoV2.API.RequestModels.dll
 D:\C# projects\CraftDemoV2\CraftDemoV2.Services\bin\Debug\net6.0\CraftDemoV2.API.RequestModels.pdb
+D:\C# projects\CraftDemoV2\CraftDemoV2.Services\bin\Debug\net6.0\CraftDemoV2.Data.dll
+D:\C# projects\CraftDemoV2\CraftDemoV2.Services\bin\Debug\net6.0\CraftDemoV2.Data.pdb

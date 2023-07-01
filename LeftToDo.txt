@@ -1,0 +1,6 @@
+Look into retry mechanicms for api requests
+Create a logic for adding the gutUser to the databse
+Create the update contact logic
+Add dependecy injection logic in startup
+Add comments
+Add unit and integration tests

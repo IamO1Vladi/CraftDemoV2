@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CraftDemoV2.Data\CraftDemoV2.Data.csproj" />
     <ProjectReference Include="..\CraftDemoV2.Services\CraftDemoV2.Services.csproj" />
   </ItemGroup>
 

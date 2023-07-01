@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using CraftDemoV2.API.ResponseModels.GitHubModels.Users;
 using CraftDemoV2.Services.APIServices.GitHubServices.Interfaces;
 using Newtonsoft.Json;
+using static CraftDemoV2.Common.APILimits.GitHubLimits.GitHubApiLimits;
 
 namespace CraftDemoV2.Services.APIServices.GitHubServices
 {
@@ -28,34 +30,70 @@ namespace CraftDemoV2.Services.APIServices.GitHubServices
 
             HttpResponseMessage response= await client.GetAsync(endPointUrl);
 
-            if (!response.IsSuccessStatusCode)
+            int retryAttempts = 0;
+
+            while (retryAttempts != MaxRetryAttempts)
             {
-                Console.WriteLine("First request to GitHub was not successful, trying again");
-                for (int i = 0; i < 10; i++)
+                if (response.IsSuccessStatusCode)
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        break;
-                    }
+                    string responseBody = await response.Content.ReadAsStringAsync();
 
-                    Console.WriteLine("Trying again");
-                    Thread.Sleep(500);
-                    response= await client.GetAsync(endPointUrl);
+                    GitHubGetUserModel gitHubUser = JsonConvert.DeserializeObject<GitHubGetUserModel>(responseBody);
+
+                    return gitHubUser;
+                }
+                else if (response.StatusCode >= HttpStatusCode.BadRequest &&
+                         response.StatusCode < HttpStatusCode.InternalServerError)
+                {
+
+                    throw new Exception($"Client side error(Bad Request): {response.RequestMessage}");
+                }
+                else if (response.StatusCode >= HttpStatusCode.InternalServerError)
+                {
+                    Console.WriteLine($"Server side error: {response.RequestMessage}");
                 }
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw new Exception($"All requests failed with code: {response.StatusCode}");
-                }
+                retryAttempts++;
+                Console.WriteLine("Retrying");
+                Thread.Sleep(RetryDelayMilliseconds);
+
+                response = await client.GetAsync(endPointUrl);
+
             }
 
+            if (retryAttempts == MaxRetryAttempts)
+            {
+                throw new Exception("Server is unavailable, please try again later");
+            }
 
-            string responseBody= await response.Content.ReadAsStringAsync();
+            return null;
 
-            GitHubGetUserModel gitHubUser = JsonConvert.DeserializeObject<GitHubGetUserModel>(responseBody);
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    Console.WriteLine("First request to GitHub was not successful, trying again");
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            break;
+            //        }
+
+            //        Console.WriteLine("Trying again");
+            //        Thread.Sleep(500);
+            //        response= await client.GetAsync(endPointUrl);
+            //    }
+
+            //    if (!response.IsSuccessStatusCode)
+            //    {
+            //        throw new Exception($"All requests failed with code: {response.StatusCode}");
+            //    }
+            //}
 
 
-            return gitHubUser;
+
+
+
+
         }
 
       
