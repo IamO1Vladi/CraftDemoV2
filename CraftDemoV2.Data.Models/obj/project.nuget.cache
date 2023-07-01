@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "20shkwFMPin59sA9d0r24KQrQ3xfvCKmDbWXakAB29EcV3S7lduVcPP9omVfOhn7tah3irjs1BlRZRI8jsoTNw==",
+  "success": true,
+  "projectFilePath": "D:\\C# projects\\CraftDemoV2\\CraftDemoV2.Data.Models\\CraftDemoV2.Data.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

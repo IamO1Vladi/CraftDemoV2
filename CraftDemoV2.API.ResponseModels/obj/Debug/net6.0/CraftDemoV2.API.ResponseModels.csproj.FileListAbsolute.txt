@@ -1,0 +1,12 @@
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\bin\Debug\net6.0\CraftDemoV2.API.ResponseModels.deps.json
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\bin\Debug\net6.0\CraftDemoV2.API.ResponseModels.dll
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\bin\Debug\net6.0\CraftDemoV2.API.ResponseModels.pdb
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.csproj.AssemblyReference.cache
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.AssemblyInfoInputs.cache
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.AssemblyInfo.cs
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.csproj.CoreCompileInputs.cache
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.dll
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\refint\CraftDemoV2.API.ResponseModels.dll
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\CraftDemoV2.API.ResponseModels.pdb
+D:\C# projects\CraftDemoV2\CraftDemoV2.API.ResponseModels\obj\Debug\net6.0\ref\CraftDemoV2.API.ResponseModels.dll

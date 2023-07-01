@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "TlsJqhlNhJTucdwcD5XXXqHbfoDppu2wICYDyM7c4IoDQG6n8tKI64q+hV7Q7mFFDEURhlrlkGAvBL3hbLnUkg==",
+  "success": true,
+  "projectFilePath": "D:\\C# projects\\CraftDemoV2\\CraftDemoV2.API.ResponseModels\\CraftDemoV2.API.ResponseModels.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

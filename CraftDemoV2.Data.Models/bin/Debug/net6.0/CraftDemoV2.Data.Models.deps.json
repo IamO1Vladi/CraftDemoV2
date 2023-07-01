@@ -1,0 +1,52 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "CraftDemoV2.Data.Models/1.0.0": {
+        "dependencies": {
+          "CraftDemoV2.Common": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.8"
+        },
+        "runtime": {
+          "CraftDemoV2.Data.Models.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.8": {
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "assemblyVersion": "7.0.8.0",
+            "fileVersion": "7.0.823.31802"
+          }
+        }
+      },
+      "CraftDemoV2.Common/1.0.0": {
+        "runtime": {
+          "CraftDemoV2.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CraftDemoV2.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4+Kj43oGUHPneA/uZurt9Nj9NZt8PBV0vMI+iKOUhmHXQKCkRUzpJaRKIZ1QLy8LiEL5D3/AIRfclgokdJnINQ==",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.8",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512"
+    },
+    "CraftDemoV2.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

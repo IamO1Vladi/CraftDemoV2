@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CraftDemoV2.API.ResponseModels\CraftDemoV2.API.ResponseModels.csproj" />
+    <ProjectReference Include="..\CraftDemoV2.Data.Models\CraftDemoV2.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>

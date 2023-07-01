@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "lNvihQvP1KzzHTe41R5gmnVQlAEARFo9vqOVl+SZdp+1cYlQKTfsm6mMO5igckIS3KWOkng5Kv2q+aBYsqmiDA==",
+  "success": true,
+  "projectFilePath": "D:\\C# projects\\CraftDemoV2\\CraftDemoV2.Services\\CraftDemoV2.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.8\\microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
