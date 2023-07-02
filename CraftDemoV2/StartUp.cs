@@ -37,7 +37,7 @@ namespace CraftDemoV2
 
                 {
                     
-                   await mainTestService.CreateOrUpdateFreshDeskContactFromGitUser(client, "IamO1Vladi");
+                   await mainTestService.CreateOrUpdateFreshDeskContactFromGitUser(client, "FeodorRomanov");
 
                 }
 

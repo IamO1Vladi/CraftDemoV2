@@ -147,7 +147,10 @@ public class FreshDeskApiService:IFreshDeskApiService
 
                 FreshDeskResponseContactModel[] contact =
                      JsonConvert.DeserializeObject<FreshDeskResponseContactModel[]>(await response.Content.ReadAsStringAsync());//Getting the contact and creating a FreshDesk Object that we can return in case the request is successful
-
+                if (contact.Length<1)
+                {
+                    return null;
+                }
                 return contact[0];
             }
             else if (response.StatusCode >= HttpStatusCode.BadRequest &&
