@@ -10,6 +10,7 @@ using static CraftDemoV2.Common.GitHubValidations.UserValidations.UserValidation
 
 namespace CraftDemoV2.Data.Models.GitHubModels
 {
+    //This is the model used for the database table.
     public class GitHubUser
     {
 

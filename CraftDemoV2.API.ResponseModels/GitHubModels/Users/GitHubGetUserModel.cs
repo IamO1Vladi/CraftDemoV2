@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace CraftDemoV2.API.ResponseModels.GitHubModels.Users
 {
+    //This model is used to create an object from the response coming from the GitHubAPI
     public class GitHubGetUserModel
     {
         [JsonProperty("login")]

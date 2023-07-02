@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace CraftDemoV2.API.RequestModels.FreshDeskModels
 {
+    //This model is used for the body for API request to FreshDesk
     public class FreshDeskContactModel
     {
         [JsonProperty("name")]

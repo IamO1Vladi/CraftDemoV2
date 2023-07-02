@@ -9,6 +9,8 @@ using static CraftDemoV2.Data.Configuration.DbContextConfiguration;
 
 namespace CraftDemoV2.Data
 {
+    //Here is the main information about the database. We have set it up to use a sqlserver with the connection string coming from the configuration class.
+    //You can add new tables or edit relationships with FluentAPI
     public class CraftDemoV2DbContext : DbContext 
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -182,6 +182,7 @@ public class FreshDeskApiService:IFreshDeskApiService
 
     public async Task UpdateContact(HttpClient client, string contactInfo,string contactId)
     {
+        //Here we get the freshDesk domain and api key so we can use their api. If we they aren't provided an exception will be thrown.
         string? freshDeskDomain = Environment.GetEnvironmentVariable("FreshDeskDomain");
 
         string? freshDeskApiKey = Environment.GetEnvironmentVariable("FRESHDESK_TOKEN");
@@ -198,15 +199,16 @@ public class FreshDeskApiService:IFreshDeskApiService
 
 
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
-            Convert.ToBase64String(Encoding.ASCII.GetBytes($"{freshDeskApiKey}:x")));
+            Convert.ToBase64String(Encoding.ASCII.GetBytes($"{freshDeskApiKey}:x")));//Adding the authorization header so we can use the request.
 
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));//Adding the accept header as required by FreshDesk API
 
 
-        string urlEndpoint = $"https://{freshDeskDomain}.freshdesk.com/api/v2/contacts/{contactId}";
+        string urlEndpoint = $"https://{freshDeskDomain}.freshdesk.com/api/v2/contacts/{contactId}";//Creating the url for the specific user
 
-        var bodyContent = new StringContent(contactInfo, Encoding.UTF8, "application/json");
+        var bodyContent = new StringContent(contactInfo, Encoding.UTF8, "application/json");//Here we create the body for the request
 
+        //Here we set up a logic to retry the request in case we get a server side error. The MaxRetryAttempts and RetryDelayMilliseconds are set in the Common project
         int retryAttempts = 0;
         HttpResponseMessage response = await client.PutAsync(urlEndpoint, bodyContent);
 
@@ -216,18 +218,18 @@ public class FreshDeskApiService:IFreshDeskApiService
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("FreshDesk Contact was successfully updated");
+                Console.WriteLine("FreshDesk Contact was successfully updated");//If the request was successful we print out a message and end the while loop
                 break;
             }
             else if (response.StatusCode >= HttpStatusCode.BadRequest &&
                      response.StatusCode < HttpStatusCode.InternalServerError)
             {
-                throw new Exception($"Client error(Bad request): {response.RequestMessage}");
+                throw new Exception($"Client error(Bad request): {response.RequestMessage}");//If the error comes from client side the program will throw and exception message and stop
 
             }
             else if (response.StatusCode >= HttpStatusCode.InternalServerError)
             {
-                Console.WriteLine($"There was a server side error: {response.RequestMessage}");
+                Console.WriteLine($"There was a server side error: {response.RequestMessage}");//If the error is coming from the server a message will appear and the while loop will try to make the request agian
 
             }
 
@@ -242,7 +244,7 @@ public class FreshDeskApiService:IFreshDeskApiService
 
         if (retryAttempts == MaxRetryAttempts)
         {
-            throw new Exception("Server is unavailable, please try again later");
+            throw new Exception("Server is unavailable, please try again later");//In case we hit the Maximum retry attempts the program will throw an exception and stop
         }
 
 

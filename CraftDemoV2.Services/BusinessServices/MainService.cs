@@ -67,6 +67,7 @@ namespace CraftDemoV2.Services.BusinessServices
 
                     await freshDeskApiService.UpdateContact(client,freshDeskContent,freshDeskUser.Id); //Updating the contact in FreshDesk
 
+                    await gitHubDataBaseService.UpdateUser(gitHubUser); //Updates the GitUser in the database
                 }
 
                 

@@ -13,5 +13,7 @@ namespace CraftDemoV2.Services.DataBaseServices.GitHubUsersDataBase.Interfaces
 
         public Task AddUser(GitHubGetUserModel  user);
 
+        public Task UpdateUser(GitHubGetUserModel user);
+
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CraftDemoV2.API.ResponseModels.FreshDeskModels
 {
+    //This model is used to convert the responses from the FreshDesk API to a object that can be used
     public class FreshDeskResponseContactModel
     {
         [JsonProperty("name")]

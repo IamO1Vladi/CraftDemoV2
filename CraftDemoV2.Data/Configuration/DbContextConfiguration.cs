@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CraftDemoV2.Data.Configuration
 {
+    //Here you can add or edit the configuration used for the dbcontext of the database
     public static class DbContextConfiguration
     {
 
