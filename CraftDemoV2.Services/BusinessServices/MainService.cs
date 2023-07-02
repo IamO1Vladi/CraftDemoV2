@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CraftDemoV2.API.RequestModels.FreshDeskModels;
+using CraftDemoV2.API.ResponseModels.FreshDeskModels;
 using CraftDemoV2.API.ResponseModels.GitHubModels.Users;
 using CraftDemoV2.Services.APIServices.FreshDeskServices.Interfaces;
 using CraftDemoV2.Services.APIServices.GitHubServices.Interfaces;
@@ -27,13 +28,17 @@ namespace CraftDemoV2.Services.BusinessServices
             this.gitHubDataBaseService=gitHubDataBaseService;
         }
 
-        public async Task CreateFreshDeskContactFromGitUser(HttpClient client, string gitHubUserName)
+        public async Task CreateOrUpdateFreshDeskContactFromGitUser(HttpClient client, string gitHubUserName)
         {
             try
             {
 
-                GitHubGetUserModel gitHubUser = await gitHubApiService.GetUser(client, gitHubUserName);
+                GitHubGetUserModel gitHubUser = await gitHubApiService.GetUser(client, gitHubUserName);//Gets the GitHub user by the provided username
 
+                FreshDeskResponseContactModel freshDeskUser =
+                    await freshDeskApiService.GetContact(client, gitHubUser.Id) == null
+                        ? new FreshDeskResponseContactModel()
+                        : await freshDeskApiService.GetContact(client, gitHubUser.Id);//This checkes if the user has already been added to Contacts, if the user was added it returns the FreshDesk contact with an id if the user isn't added it returns an empty object
 
                 FreshDeskContactModel newFreshDeskContact = new FreshDeskContactModel()
                 {
@@ -45,13 +50,26 @@ namespace CraftDemoV2.Services.BusinessServices
                     UniqueExternalId = gitHubUser.Id,
                 };
 
+                if (freshDeskUser.UniqueExternalId==null)//If there is no UniqueExternalId(GitHubId) we proceed with creating a new FreshDesk Contact
+                {
 
-                string freshDeskContent = JsonConvert.SerializeObject(newFreshDeskContact);
+                    string freshDeskContent = JsonConvert.SerializeObject(newFreshDeskContact);// Creating a json representation of the contact
 
 
-                await freshDeskApiService.CreateContact(client, freshDeskContent);
+                    await freshDeskApiService.CreateContact(client, freshDeskContent);//Creating the contact
 
-                await gitHubDataBaseService.AddUser(gitHubUser);
+                    await gitHubDataBaseService.AddUser(gitHubUser);// Adding the contact to the database
+                }
+                else
+                {
+
+                    string freshDeskContent = JsonConvert.SerializeObject(newFreshDeskContact); // Creating a json representation of the contact
+
+                    await freshDeskApiService.UpdateContact(client,freshDeskContent,freshDeskUser.Id); //Updating the contact in FreshDesk
+
+                }
+
+                
 
             }
             catch (Exception ex)
@@ -61,5 +79,7 @@ namespace CraftDemoV2.Services.BusinessServices
             
 
         }
+
+        
     }
 }

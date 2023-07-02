@@ -22,25 +22,22 @@ namespace CraftDemoV2
                 Environment.SetEnvironmentVariable("FreshDeskDomain", "quickbasecraftdemov2-help");
                 Environment.SetEnvironmentVariable("FRESHDESK_TOKEN", "SOiTuxzkSOYo9FO2l");
 
+
                 var services = new ServiceCollection();
-                ConfigureServices(services);
+                ConfigureServices(services); //Configures the services for the Dependency Injection
                 
 
                 var serviceProvider= services.BuildServiceProvider();
                 
 
-                var testService = new GitHubApiService();
-                var testFreshDeskService = new FreshDeskApiService();
-                
-
                 var mainTestService = serviceProvider.GetRequiredService<IMainService>();
 
                 
-
                 HttpClient client = new HttpClient();
 
                 {
-                   await mainTestService.CreateFreshDeskContactFromGitUser(client, "IamO1Vladi");
+                    
+                   await mainTestService.CreateOrUpdateFreshDeskContactFromGitUser(client, "IamO1Vladi");
 
                 }
 
