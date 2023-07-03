@@ -1,6 +1,6 @@
 Look into retry mechanicms for api requests -> done
 Create a logic for adding the gutUser to the databse -> done
-Create the update contact logic -> Almost done, need to add logic for database
+Create the update contact logic -> done
 Add dependecy injection logic in startup -> done
-Add comments -> Almost done , need to add comments to the AddUser,UpdateContact and database methods and model projects
+Add comments -> done
 Add unit and integration tests

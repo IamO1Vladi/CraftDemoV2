@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftDemoV2.Common", "Craft
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftDemoV2.API.ResponseModels", "CraftDemoV2.API.ResponseModels\CraftDemoV2.API.ResponseModels.csproj", "{993C5B9C-2896-4146-9E70-7B7602888A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftDemoV2.API.RequestModels", "CraftDemoV2.API.RequestModels\CraftDemoV2.API.RequestModels.csproj", "{FED6B1E9-8DE2-41B5-B809-360543EDB6B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftDemoV2.API.RequestModels", "CraftDemoV2.API.RequestModels\CraftDemoV2.API.RequestModels.csproj", "{FED6B1E9-8DE2-41B5-B809-360543EDB6B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftDemoV2.Tests", "CraftDemoV2.Tests\CraftDemoV2.Tests.csproj", "{5784EBBE-DC99-4370-82EB-29E0F670492B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{FED6B1E9-8DE2-41B5-B809-360543EDB6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FED6B1E9-8DE2-41B5-B809-360543EDB6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FED6B1E9-8DE2-41B5-B809-360543EDB6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5784EBBE-DC99-4370-82EB-29E0F670492B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5784EBBE-DC99-4370-82EB-29E0F670492B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5784EBBE-DC99-4370-82EB-29E0F670492B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5784EBBE-DC99-4370-82EB-29E0F670492B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,8 +19,12 @@ namespace CraftDemoV2
         {
             try
             {
-                Environment.SetEnvironmentVariable("FreshDeskDomain", "quickbasecraftdemov2-help");
+                Console.WriteLine("Please enter a FreshDeskDomain name: ");
+                Environment.SetEnvironmentVariable("FreshDeskDomain", Console.ReadLine());//quickbasecraftdemov2-help
                 Environment.SetEnvironmentVariable("FRESHDESK_TOKEN", "SOiTuxzkSOYo9FO2l");
+
+                Console.WriteLine("Enter a GitHub userName: ");
+                string? gitHubUserName=Console.ReadLine();
 
 
                 var services = new ServiceCollection();
@@ -37,7 +41,7 @@ namespace CraftDemoV2
 
                 {
                     
-                   await mainTestService.CreateOrUpdateFreshDeskContactFromGitUser(client, "FeodorRomanov");
+                   await mainTestService.CreateOrUpdateFreshDeskContactFromGitUser(client, gitHubUserName);
 
                 }
 
