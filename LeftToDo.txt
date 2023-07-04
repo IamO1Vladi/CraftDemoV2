@@ -3,4 +3,4 @@ Create a logic for adding the gutUser to the databse -> done
 Create the update contact logic -> done
 Add dependecy injection logic in startup -> done
 Add comments -> done
-Add unit and integration tests
+Add unit tests-> Done
